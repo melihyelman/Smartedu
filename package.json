@@ -1,0 +1,32 @@
+{
+  "name": "smartedu",
+  "version": "1.0.0",
+  "description": "Education Portal, starter projects",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/melihyelman/Smartedu.git"
+  },
+  "keywords": [
+    "education",
+    "portal",
+    "starter",
+    "nodejs"
+  ],
+  "author": "Melih Yelman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/melihyelman/Smartedu/issues"
+  },
+  "homepage": "https://github.com/melihyelman/Smartedu#readme",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}
