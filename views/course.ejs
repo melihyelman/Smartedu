@@ -78,7 +78,7 @@
 							<h3 class="widget-title">Categories</h3>
 							<ul>
 								<% categories.map(category=> { %>
-									<li><a href="#">
+									<li><a href="/courses?categories=<%= category.slug %>">
 											<%= category.name %>
 										</a></li>
 									<% }) %>
