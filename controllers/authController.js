@@ -1,6 +1,7 @@
 const bcrpyt = require('bcrypt');
 
 const User = require('../models/User');
+const Category = require('../models/Category');
 
 exports.createUser = async (req, res) => {
   try {
@@ -46,9 +47,11 @@ exports.logoutUser = async (req, res) => {
 
 exports.getDashboardPage = async (req, res) => {
   const user = await User.findById({ _id: req.session.userId });
+  const categories = await Category.find();
 
   res.status(200).render('dashboard', {
     pageName: 'dashboard',
     user,
+    categories,
   });
 };
