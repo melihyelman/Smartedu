@@ -11,22 +11,53 @@
                 <span class="icon-bar"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbars-host">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item <%- pageName==='index' && 'active' %>"><a class="nav-link" href="/">Home</a>
-                    </li>
-                    <li class="nav-item <%- pageName==='about' && 'active' %>"><a class="nav-link" href="/about">About
-                            Us</a></li>
-                    <li class="nav-item <%- pageName==='courses' && 'active' %>"><a class="nav-link"
-                            href="/courses">Courses</a></li>
-                    <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a class="hover-btn-new log orange mr-2" href="login.html"><span><i class="fa fa-sign-in"
-                                    aria-hidden="true"></i></span></a></li>
-                    <li><a class="hover-btn-new log <%- pageName==='register' && 'orange' %>" href="/register"><span><i
-                                    class="fa fa-user-plus" aria-hidden="true"></i></span></a></li>
-                </ul>
+
+                <% if(!userIn) { %>
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item <%- pageName==='index' && 'active' %>"><a class="nav-link" href="/">Home</a>
+                        </li>
+                        <li class="nav-item <%- pageName==='about' && 'active' %>"><a class="nav-link"
+                                href="/about">About
+                                Us</a></li>
+                        <li class="nav-item <%- pageName==='courses' && 'active' %>"><a class="nav-link"
+                                href="/courses">Courses</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    </ul>
+                    <% } else { %>
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item <%- pageName==='index' && 'active' %>"><a class="nav-link"
+                                    href="/">Home</a>
+                            </li>
+                            <li class="nav-item <%- pageName==='about' && 'active' %>"><a class="nav-link"
+                                    href="/about">About
+                                    Us</a></li>
+                            <li class="nav-item <%- pageName==='courses' && 'active' %>"><a class="nav-link"
+                                    href="/courses">Courses</a></li>
+
+                            <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
+                            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                        </ul>
+                        <% } %>
+
+                            <% if(!userIn) { %>
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li><a class="hover-btn-new log <%- pageName==='login' && 'orange' %> mr-2"
+                                            href="/login"><span><i class="fa fa-sign-in"
+                                                    aria-hidden="true"></i></span></a></li>
+                                    <li><a class="hover-btn-new log <%- pageName==='register' && 'orange' %>"
+                                            href="/register"><span><i class="fa fa-user-plus"
+                                                    aria-hidden="true"></i></span></a>
+                                    </li>
+                                </ul>
+                                <% } else { %>
+                                    <ul class="nav navbar-nav navbar-right">
+                                        <li><a class="hover-btn-new log <%- pageName==='login' && 'orange' %> mr-2"
+                                                href="/login"><span><i class="fa fa-sign-out"
+                                                        aria-hidden="true"></i></span></a>
+                                        </li>
+                                    </ul>
+                                    <% } %>
+
             </div>
         </div>
     </nav>
