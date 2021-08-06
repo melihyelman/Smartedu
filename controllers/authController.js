@@ -24,11 +24,9 @@ exports.loginUser = async (req, res) => {
     await User.findOne({ email }, (err, user) => {
       if (user) {
         bcrpyt.compare(password, user.password, (err, same) => {
-          if (same) {
-            //user sessions
-            req.session.userId = user._id;
-            res.status(200).redirect('/users/dashboard');
-          }
+          //user sessions
+          req.session.userId = user._id;
+          res.status(200).redirect('/users/dashboard');
         });
       }
     });
@@ -47,7 +45,9 @@ exports.logoutUser = async (req, res) => {
 };
 
 exports.getDashboardPage = async (req, res) => {
-  const user = await User.findById({ _id: req.session.userId });
+  const user = await User.findById({ _id: req.session.userId }).populate(
+    'courses'
+  );
   const categories = await Category.find();
 
   const courses = await Course.find({
